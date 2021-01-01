@@ -1,11 +1,13 @@
 import React from 'react';
+//types
+import { AnswerObject } from '../App';
 
 type Props = {
   question: string;
   //array of strings
   answers: string[];
-  callback: any;
-  userAnswer: any;
+  callback: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  userAnswer: AnswerObject | undefined;
   questionNr: number;
   totalQuestions: number;
 };
@@ -27,7 +29,11 @@ const QuestionCard: React.FC<Props> = ({
       <div>
         {answers.map((answer) => (
           <div key={answer}>
-            <button disabled={userAnswer} onClick={callback}>
+            <button
+              disabled={userAnswer ? true : false}
+              value={answer}
+              onClick={callback}
+            >
               <span dangerouslySetInnerHTML={{ __html: answer }} />
             </button>
           </div>
