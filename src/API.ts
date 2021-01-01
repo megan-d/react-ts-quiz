@@ -13,7 +13,7 @@ export type Question = {
 };
 
 //type to combine correct and incorrect answers
-export type QuestionState = Question & { answers: string[] };
+export type QuestionState = Question & { answer: string[] };
 
 //use enum to specify easy, medium, or hard
 export enum Difficulty {
